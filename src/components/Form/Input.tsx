@@ -1,9 +1,12 @@
-export function Inout() {
+// Packages
+import { InputHTMLAttributes } from "react";
+
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
+
+export function Input(props: InputProps) {
   return (
     <input
-      id="game"
-      type="text"
-      placeholder="Selecione o game que deseja jogar"
+      {...props}
       className="bg-zinc-900 py-3 px-4 rounded text-sm placeholder:text-zinc-500"
     />
   )
