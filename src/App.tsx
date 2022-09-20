@@ -1,4 +1,5 @@
 // Packages
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 
@@ -26,10 +27,9 @@ function App() {
   const [games, setGames] = useState<IGame[]>([])
 
   useEffect(() => {
-    fetch('http://localhost:3333/games')
-      .then(response => response.json())
-      .then(data => {
-        setGames(data);
+    axios('http://localhost:3333/games')
+      .then(response => {
+        setGames(response.data);
       })
   }, [])
 
